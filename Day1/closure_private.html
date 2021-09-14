@@ -1,0 +1,30 @@
+<html>
+    <script>
+        function stack()
+        {   
+            let stackArray=[];
+            function push(ele)
+            {
+                return stackArray.push(ele);
+            }
+            function pop()
+            {
+                return stackArray.pop();
+            }
+            console.log("Array",stackArray)
+            return {
+                push,pop,
+                
+            }
+        }
+        let st1=stack();
+        st1.push(33);
+        st1.push(93);
+        st1.push(3);
+        console.log("Pop method called",st1.pop());
+        let st2=stack();
+        st2.push(78);
+        st2.push(77);
+        //console.log("Pop method called ",st2.pop())
+    </script>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <script>
+
+        function square(num){
+            console.log("Compute square of", num);
+            return num*num;
+        };
+        getSquare.cache={};
+        function getSquare(num){
+            if(! getSquare.cache[num])
+            {
+                let result=square(num);
+                getSquare.cache[num]=result;
+                
+            }
+            
+            return getSquare.cache[num];
+    
+        }
+        console.log("normal function",square(8))
+        console.log("get square function ",getSquare(3));
+        console.log("get square function ",getSquare(33));
+        console.log("get square function ",getSquare(3));
+        
+        
+    </script>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <script>
+        function trace(anotherFunc)
+        {
+            
+            return function()
+            {
+                console.log("THis function",anotherFunc.name,"called with",arguments);
+                
+                anotherFunc(...arguments);
+                //return anotherFunc.apply(null,arguments)
+            }
+        }
+        function display(args)
+        {
+
+            console.log("Display Function called",args);
+        }
+        let result=trace(display);
+        result("hello");
+        result(4,5,6,66)
+    </script>
+</html>

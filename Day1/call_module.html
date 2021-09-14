@@ -1,0 +1,24 @@
+<html>
+    <script src="Module.js">
+
+        console.log("call module?");
+    </script>
+    <script>
+        function myModule(){
+            function privateFunc()
+            {
+                console.log("Private Func called");
+            };
+            function apiFunc()
+            {
+                console.log("API1");
+                return privateFunc();
+            }
+            return{
+                api:apiFunc
+            }
+        }
+        let result=myModule();
+        result.api();
+    </script>
+</html>

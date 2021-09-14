@@ -1,0 +1,22 @@
+<html>
+    <script>
+        function compose(a,b)
+        {
+            return function(x)
+            {
+                return a(b(x))
+            }
+        }
+        function upper(str)
+        {
+            return str.toUpperCase();
+        }
+        function prependHi(str)
+        {
+            return "Hi "+str;
+        }
+        console.log(upper(prependHi("Nk")));
+        let greeting=compose(upper,prependHi)
+        console.log(greeting("how are you?"))
+    </script>
+</html>

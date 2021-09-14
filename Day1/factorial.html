@@ -1,0 +1,43 @@
+<html>
+    <script>
+        //recursive function
+        function factorial(n)
+        {
+            console.log("Fact function")
+            
+            if (n==0)
+            {
+                return 1;
+            }
+            else
+            {
+                
+                return n*factorial(n-1);
+            }
+        }
+        getFactor.cache={};
+        function getFactor(num){
+            if(! getFactor.cache[num])
+            {
+                let result=factorial(num);
+                getFactor.cache[num]=result;
+            }
+            return getFactor.cache[num]
+        }
+        console.log("factorial of ", getFactor(5));
+        console.log("factorial of ", getFactor(3));
+        console.log("factorial of ", getFactor(5))
+        console.log("factorial of ", getFactor(3));
+        //for loop more efficient
+        function fact(num)
+        {
+            let result=1
+            for (let i=1;i<=num;i++)
+            {
+                 result*=i;
+            }
+            return result
+        }
+        console.log(fact(3))
+    </script>
+</html>

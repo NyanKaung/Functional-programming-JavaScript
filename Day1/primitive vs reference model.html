@@ -1,0 +1,43 @@
+<html>
+    <script>
+        //pass by  value*****
+        //primitive=no change
+        //Reference =>> reference change=no change
+        //              property via reference=changes
+
+
+
+        //prameter passing by value model
+        function change(a)
+        {
+            let result=a++;
+            console.log("Value of a ",a);
+        }
+        let data=20;
+        change(data)
+        console.log("Data ",data)
+
+        //parameter passing by reference model
+        //change from reference pointer
+        function changeRef(obj)
+        {
+            obj.data++;
+            console.log("Value of obj in Func ",obj);
+        }
+        let obj1={
+            data:200
+        };
+        changeRef(obj1);
+        console.log("After change object ",obj1.data);
+        //change reference
+        function changeObj(obj)
+        {
+            obj={
+                data:10
+            }
+            console.log("Value of obj in Func ",obj);
+        }
+        changeObj(obj1);
+        console.log("After change object ",obj1.data);
+    </script>
+</html>
