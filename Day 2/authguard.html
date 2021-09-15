@@ -1,0 +1,25 @@
+<html>
+    <script>
+        const once=(fn)=>
+        {
+            let cachedData={};
+            return function(x){
+                
+                //return cachedData[x]?cachedData[x]:cachedData[x]=fn(x);
+                return cachedData[x] || (cachedData[x] =fn(x));
+            };
+            
+        }
+        const addOne=(s)=>{
+            console.log("Add ",s);
+            return s+1;
+        };
+        let cachedOnce=once(addOne);
+        console.log("add 3 =>",cachedOnce(3));
+        console.log("add 4 =>",cachedOnce(4));
+        console.log("add 3 =>",cachedOnce(3));
+        console.log("add 4 =>",cachedOnce(4));
+        console.log("add 3 =>",cachedOnce(3));
+        console.log("add 4 =>",cachedOnce(4));
+    </script>
+</html>

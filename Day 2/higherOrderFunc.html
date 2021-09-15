@@ -1,0 +1,21 @@
+<html>
+    <script>
+        function normal()
+        {
+            console.log("Normal function");
+        }
+        function firstFunc(fun)
+        {
+            console.log("first function");
+            fun();
+        }
+        //return function 
+        function secondFunc()
+        {
+            return normal;
+        }
+        firstFunc(normal);
+        secondFunc()();
+
+    </script>
+</html>

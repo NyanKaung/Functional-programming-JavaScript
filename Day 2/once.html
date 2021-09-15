@@ -1,0 +1,30 @@
+<html>
+    <script>
+        const once=(fn)=>{
+            let done=false;
+            return function()
+            {
+                return done?undefined : (done=true,fn(...arguments))
+            }
+        }
+        const onceFunc=()=>{
+            console.log("Fone shu lyk");
+        }
+        const multi=(x,y)=>console.log(x*y);
+        let justOnce=once(onceFunc);
+        justOnce();
+        justOnce();
+        justOnce();
+        let onceMulti=once(multi)
+        onceMulti(4,5)
+        onceMulti(3,4)
+        onceMulti(4,5)
+        onceMulti(3,4)
+
+
+
+          
+
+        
+    </script>
+</html>

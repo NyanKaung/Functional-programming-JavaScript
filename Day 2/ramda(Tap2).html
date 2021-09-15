@@ -1,0 +1,29 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.27.1/ramda.min.js"></script>
+    <script>
+        const add1=x=>x+1;
+        const mulBy2=x=>x*2;
+/*      pipe Ramda
+        let addOneAndMulTwo=R.pipe(add1,mulBy2);
+        console.log("The result is ",addOneAndMulTwo(6));;*/
+        const log=R.tap(x=>console.log("using log ",x));
+        const addOneAndMulTwo=R.pipe(
+            add1,
+            //R.tap(x=>console.log("X is ",x)), OR
+            log,
+            mulBy2,
+            log
+        );
+        console.log(addOneAndMulTwo(8))
+
+        
+        //manually tap
+        const sayX = x => console.log('x is ' + x);
+        R.tap(sayX, 100); //=> 100
+        // logs 'x is 100'
+        //example tap
+
+        const tap=(x)=>(console.log("manually tap x is ",x));
+
+    </script>
+</html>

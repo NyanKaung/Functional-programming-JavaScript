@@ -1,0 +1,22 @@
+<html>
+    <script>
+        //impure function
+        
+        function outer()
+        {
+            let value=0;
+            console.log("outer function called!",value)
+            return function inner()
+            {
+                console.log("inner function called")
+                return value++;
+            }
+            
+        }
+        let closure=outer()
+        console.log("Closure func ",closure());
+        console.log("Closure func ",closure());
+        console.log("Closure func ",closure());
+        
+    </script>
+</html>

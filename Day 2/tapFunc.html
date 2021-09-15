@@ -1,0 +1,17 @@
+<html>
+    <script>
+        /*const tap=(value)=>(fn)=>(
+            typeof(fn)==='function' && fn(value),console.log(value)
+            )
+            tap("fun")((it)=>console.log("value is ",it))*/
+        const addOne=x=>x+1;
+
+
+        const tap=(value)=>(addOne)=>
+        {
+            addOne(value);
+            return value;
+        }
+        tap(3,addOne)(it=>console.log(it))
+    </script>
+</html>

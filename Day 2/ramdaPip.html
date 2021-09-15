@@ -1,0 +1,11 @@
+<>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.27.1/ramda.min.js"></script>
+    <script>
+        const add1=x=>x+1;
+        const mulBy2=x=>x*2;
+
+        let addOneAndMulTwo=R.pipe(add1,mulBy2);
+        console.log("The result is ",addOneAndMulTwo(6));;
+    </script>
+    
+</html>

@@ -1,0 +1,19 @@
+<html>
+    
+    <script>
+        //use for more than one parameter acccess function
+        //to access one parameter
+        let arr=["1","2","3"]
+        console.log("before unary ",arr.map(parseInt))
+
+        const ourparse=(x)=>parseInt(x);
+        console.log("After unary parse ",arr.map(ourparse))
+        const multi=(x)=>x*2;
+        const unary=(fn)=>(
+            fn.length===1?fn: (arg)=>fn(arg)
+            );
+        let varieable=2;
+        console.log("Unary ",arr.map(unary(parseInt)))
+        console.log("Unary multi ", arr.map(unary(multi)))
+    </script>
+</html>
