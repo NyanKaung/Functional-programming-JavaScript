@@ -1,0 +1,30 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.27.1/ramda.min.js"></script>
+   
+    <script>
+        
+        function tap(fn,value)
+        {
+            fn(value)
+            return value;
+        }
+        //tap((x)=>console.log("Tap function ",x),"Tap Testig")
+        
+        const toUpper=(text)=>(text.toUpperCase());
+
+        const greeting=(greet)=>(greet+" guys");
+
+        const tapfunc=(fn)=>(val)=>(fn(val),val);
+        
+        let consoleLog=(x)=>console.log("Tap function ",x);
+        let log=tapfunc((x)=>console.log("Tap function ",x));
+        
+        
+
+        let toUpperAndGreeting=R.compose(log,toUpper,log,greeting)
+        console.log("Ramda compose called ",toUpperAndGreeting("Nice to meet you"))
+
+     
+
+    </script>
+</html>

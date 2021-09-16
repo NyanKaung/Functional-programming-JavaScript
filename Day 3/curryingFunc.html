@@ -1,0 +1,16 @@
+<html>
+    <script>
+        const add=(x,y)=> x+y;
+        console.log("Normal Add function ",add(5,6));
+        console.log("Normal Add function ",add(5));
+        /*
+        //currying function is for using multiple parameter function
+         to 1parameter functions
+         */
+        
+        const curryFunc=(x)=>(y)=>(x+y); //lambda function
+        console.log("Normal Add function ",curryFunc(5)(5));
+        console.log("Normal Add function ",curryFunc(5)(6));
+    </script>
+    
+</html>

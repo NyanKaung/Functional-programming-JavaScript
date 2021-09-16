@@ -1,0 +1,54 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.27.1/ramda.min.js"></script>
+   
+    <script>
+        
+        
+        function tap1(fn,value)
+        {
+            fn(value)
+            return value;
+        }
+        const currytap=(fn)=>(value)=>(
+            fn(value),
+            value
+            
+        )
+        
+        const toUpper=(text)=>(text.toUpperCase());
+        const greeting=(greet)=>(greet+" guys");
+        /*
+        function tap(fn)
+        {
+            return function(value)
+            {
+                fn(value)
+                return value;
+            }
+            
+        }
+        */
+        //tap accept2 parameters
+        tap1((x)=>console.log("result is ",x),"hey there"); 
+
+
+        console.log(toUpper(greeting("hey yo")));
+        //if we want to see log
+        //cant run tap1 because two parameter accept
+
+        //console.log(toUpper(tap1(greeting("hey yo"))));
+        
+        //but curry form tap work becozaccpet 1parameter functions
+        let log=currytap(x=>console.log("Curry tap works ",x));
+         //accept 1parameter first
+          //not full parameter..that is called  partial..after invoked partial application
+        /******For tarzan***/
+        console.log(toUpper(log(greeting("hey yo Mingalarbr"))));
+
+        let toUpperAndGreeting=R.compose(log,toUpper,log,greeting)
+        console.log("Ramda compose called ",toUpperAndGreeting("Nice to meet you"))
+        
+
+
+    </script>
+</html>

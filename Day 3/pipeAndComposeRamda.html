@@ -1,0 +1,15 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.27.1/ramda.min.js"></script>
+    <script>
+        let compose=(funA,funB)=>x=>funA(funB);
+        const toUpper=(text)=>(text.toUpperCase());
+
+        const greeting=(greet)=>(greet+" guys");
+        let upperAndGreet=R.compose(toUpper,greeting);
+        console.log("Compose called ",upperAndGreet("Mingalar br"));
+        let pipeFun=R.pipe(greeting,toUpper);
+        let curryFunc=R.curry(pipeFun)
+        let cu=curryFunc("mate swe")
+        console.log("Pipe called ",cu("Mingalar br"));
+    </script>
+</html>

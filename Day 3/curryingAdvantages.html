@@ -1,0 +1,23 @@
+<html>
+    <script>
+        //specialized version for parameter
+        const add=x=>y=>x+y;
+        let add3=add(3); //become separate function
+        console.log("Add 3 ",add3);
+        console.log("Add5 ", add3(2));
+
+        //For example
+        function api1(apibased,url)
+        {
+            return (apibased+url);
+        }
+        console.log("Api called ",api1("https://localhost/api","movie"));
+
+        ///VS//////
+        
+        const api=apibased=>path=>apibased+path;
+        let apicall=api("https://localhost/api");
+        console.log("Api called ",apicall("movie"));
+        console.log("Api called ",apicall("movie/1"));
+    </script>
+</html>
