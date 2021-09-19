@@ -1,0 +1,64 @@
+<html>
+    <script>
+        //why get error and error message show
+        const Nothing=function (value)
+        {
+            this.value=value
+        }
+        Nothing.of=function(value)
+        {
+            return new Nothing(value)
+        }
+        Nothing.prototype.map=function(fn)
+        {
+            return this
+        }
+        const Some=function (value)
+        {
+            this.value=value
+        }
+        Some.of=function(value)
+        {
+            return new Some(value)
+        }
+        Some.prototype.map=function(fn)
+        {
+            return Some.of(fn(this.value))
+        }
+
+        const Either={
+            Some:Some,
+            Nothing:Nothing
+        }
+        function request(type)
+        {
+            if (type=="about")
+            {
+                return {'about':'https://www.reddit.com/r/subreddit/'+type+'.json'}
+            }
+            else
+            {
+                throw Error("cannot get data")
+            }
+        }
+        const getReddit=(type)=>{
+            let response;
+            try
+            {
+                
+                response=Some.of((request(type)))
+            }
+            catch(err)
+            {
+                console.log(err)
+                response=Nothing.of({message:"Something went wrong",error:err["statusCode"]});
+            }
+            return response
+        }
+        //console.log(request("about"))
+        let result=getReddit("about")
+        let output=result.map(x=>x)
+        //console.log(getReddit("about"))
+        console.log("Output is ",output)
+    </script>
+</html>

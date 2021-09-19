@@ -1,0 +1,38 @@
+<html>
+    <script>
+        //MayBe undefined and null return
+        /* eg let str
+              str,"hi*/
+
+        //container
+        function MayBe(value)
+        {
+            this.value=value
+        }
+        MayBe.of=function(value)
+        {
+            return new MayBe(value);
+        }
+        //is null or undefined
+        MayBe.prototype.isNothing=function(value)
+        {
+            return (this.value==null || this.value==undefined || isNaN(this.value));
+        }
+
+        //map function
+        MayBe.prototype.map=function(fn)
+        {
+            return this.isNothing()?MayBe.of(null):MayBe.of(fn(this.value))
+        }
+        const toUpper=(text)=>(text.toUpperCase());
+
+        const greeting=(greet)=>(greet+" guys");
+        let s="hello"
+        let state=MayBe.of(s);
+        let output=state.map(greeting)
+                        .map(toUpper)
+                        .map(x=>x*8)
+                        .map(toUpper)
+        console.log("output is ",output)
+    </script>
+</html>

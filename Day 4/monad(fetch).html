@@ -1,0 +1,30 @@
+<html>
+    <script>
+        let url='https://run.mocky.io/v3/f20c9c30-4971-43d0-98e7-5aa1a7749d8c';
+        function callApi()
+        {
+        fetch(url)
+        .then(response=>
+        {
+               console.log("response ",response)
+               return response.json()
+        })
+        
+        
+        .then(data=>
+        {
+            console.log("JSON ",data)
+        })
+
+        
+        }
+        function callBackend()
+        {
+            fetch(url)
+            .then(response => response.json())
+            .then(data => console.log(data));
+        }
+        callBackend()
+        callApi()
+    </script>
+</html>

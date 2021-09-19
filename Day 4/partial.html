@@ -1,0 +1,25 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.27.1/ramda.min.js"></script>
+    <script>
+        const add=(a,b,c,d)=>a+b+c+d;
+        const pAdd=R.partial(add,[1,3]);
+        const multiply2 = (a, b) => a * b;
+        const double = R.partial(multiply2, [7]);
+        double(2); //=> 4
+        console.log("partial double ",double(2))
+        console.log("partial add ",pAdd(4,5))
+
+
+        const curryfun=R.curry(add);
+        const add1=curryfun(2)
+        const add2=curryfun(1,2);
+        console.log("Add func called ",add2(2))
+        console.log("Add function called ",add1(4,7,8))
+        //Eg 
+        const greetingMessage=(hi,gen,name)=>hi+','+gen+'.'+name;
+        const sayhi=R.partial(greetingMessage,["Hello"]);
+        const male=R.partial(sayhi,["Mr"])
+        const female=R.partial(sayhi,"Mrs")
+        console.log(male("Tarzan"))
+    </script>
+</html>

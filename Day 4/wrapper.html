@@ -1,0 +1,36 @@
+<html>
+    <script>
+        /*
+        let count=1;
+        count++;//we cant use in functional Programming (side effect)*/
+        //Funtors =>wrap(container)=>map=>fn return
+        //didnt change original value
+        const add1=x=>x+1;
+        const double=x=>x*x;
+        const Container=function(value)
+        {
+            this.value=value;
+        }
+        Container.of=(value)=>
+        {
+            return new Container(value)
+        }
+        Container.prototype.map=function(fn)
+        {
+            return Container.of(fn(this.value))
+        }
+        let wrapper=Container.of(90);
+        
+        let addFunctor=wrapper1.map(add1)   
+                                .map(double)
+
+        console.log("count ",addFunctor);
+
+
+        
+        
+
+
+        
+    </script>0
+</html>

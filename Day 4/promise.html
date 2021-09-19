@@ -1,0 +1,10 @@
+<html>
+    <script>
+        const x=20;
+        const p=Promise.resolve(x)
+        const f=n=>Promise.resolve(n*2)
+        const result=p.then(f);//map and lift
+        result.then(r=>console.log("Result ",r))
+        
+    </script>
+</html>

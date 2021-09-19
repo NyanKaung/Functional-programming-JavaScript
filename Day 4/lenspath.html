@@ -1,0 +1,28 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.27.1/ramda.min.js"></script>
+    <script>
+        let obj={
+            name:"Nk",
+
+        }
+        let company={
+
+            name:"NK",
+            address:{
+                city:"Yangon",
+                township:"Dawbon"
+            }
+        }
+        let nameprop=R.propOr("No address","address")
+        let township=R.lensPath(["address","township"]);//path
+        
+        console.log("obj township ",R.view(township,obj));
+        console.log("Company township ",R.view(township,company));
+        console.log("obj township ",nameprop(obj));
+        console.log("Company township ",nameprop(company));
+        //setter new obj return
+        let obj2=R.set(township,"Tharkayta", obj)
+        console.log("Obj 2 is ",obj2)
+
+    </script>
+</html>

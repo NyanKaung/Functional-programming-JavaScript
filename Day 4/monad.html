@@ -1,0 +1,20 @@
+<html>
+    <script>
+        /*Monad need functor/flatten/map/chain=>map+flatten
+        */
+        const Identity=x=>(
+        {
+            emit:()=>x, //this.value=value//flatten
+            chain:f=>f(x),//flatten//return value 
+            map:f=>Identity(f(x)) //Container return
+
+
+        })
+        Identity.of=Identity
+        const one=Identity.of(1);
+        console.log("One ",one)
+        const two=one.map(x=>x+1)
+        console.log("two ",two)
+        console.log("two ",two.chain(x=>x+300))
+    </script>
+</html>

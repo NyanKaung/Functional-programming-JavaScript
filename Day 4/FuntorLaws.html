@@ -1,0 +1,35 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.27.1/ramda.min.js"></script>
+    <script>
+        
+        const add1=x=>x+1;
+        const double=x=>x*x;
+        const identity=x=>x;
+        const Container=function(value)
+        {
+            this.value=value;
+        }
+        Container.of=(value)=>(new Container(value));
+      
+
+        
+        Container.prototype.map=function(fn)
+        {
+            return Container.of(fn(this.value))
+        }
+        //Law 1 fmap id=id
+        console.log("Law 1 ",Container.of(3).map(identity));
+        //Law2 fmap (g.h)=fmap g . fmap h
+        let doubleAndAdd1=R.compose(add1,double);
+        console.log("Law 2 ",Container.of(6).map(doubleAndAdd1))
+        
+        
+
+
+        
+        
+
+
+        
+    </script>0
+</html>
